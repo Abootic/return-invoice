@@ -89,7 +89,18 @@
               data-atf="true"
             />
           </button>
-         
+          <div
+          class="btn col-2"
+          @click="rStore.removeFromInvoiceList(returnData)"
+        >
+          <!-- <img src="https://www.svgrepo.com/show/349637/trash.svg" @click="store.removeFromInvoiceList(index)" class="icon-svg"   alt="Correct Vector SVG Icon - SVG Repo" jsname="kn3ccd"> -->
+          <img
+            src="https://www.svgrepo.com/show/349637/trash.svg"
+            class="icon-svg"
+            alt="Correct Vector SVG Icon - SVG Repo"
+            jsname="kn3ccd"
+          />
+        </div>
         </div>
       </div>
       
@@ -122,7 +133,8 @@ import { useReturnInvoiceStore } from '@/stores/returnInvoiceStore';
     setup() {
      
       const langStore = useLanguageStore();
-      return {  langStore };
+      const rStore=useReturnInvoiceStore();
+      return {  langStore ,rStore};
     },
     name: "returninvoice-details",
    components:{

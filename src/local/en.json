@@ -38,7 +38,11 @@
     "paid":"paid",
     "pend":"pending",
     "returned":"returned",
-    "selectinvoicemerit":"seclect invoice merit"
+    "selectinvoicemerit":"seclect invoice merit" ,
+    "search":"search",
+    "change":"change",
+    "returninvoice":"return invoice",
+    "changeQty":"change Quantity"
 
     
 }

@@ -1,6 +1,6 @@
 <template>
     <section id="main-dirv">
-        <h1> return invoice</h1>
+        <h1> {{ langStore.TRANSLATE("returninvoice") }}</h1>
       <main>
         <!--The Container-->
        
@@ -190,6 +190,7 @@
     setup(){
         const langStore=useLanguageStore();
         const rturnStore=useReturnInvoiceStore();
+     
    
         return {langStore,rturnStore}
     },
@@ -209,10 +210,12 @@
     },
 methods:{
  async onSave(e){
+  const rturnStore=useReturnInvoiceStore();
     e.preventDefault();
+if(rturnStore.returnDataList.length>0){
     try{
           document.getElementById("add-orderId").innerHTML="<div class='spinner-border text-info'><span class='sr-only'></span></div>";
-      const rturnStore=useReturnInvoiceStore();
+    
       if(rturnStore.returnDataList.length>0){
         for(let i=0;i<rturnStore.returnDataList.length;i++){
           rturnStore.returnInvoice.order_details.push({
@@ -242,6 +245,9 @@ methods:{
     }catch(e){
 console.log(e)
     }
+  }else{
+    alert("you must add items to return invoices ");
+  }
    
   },
   onClear(e){
@@ -252,6 +258,25 @@ console.log(e)
           rturnStore.$reset();
           window.location.reload();
   },
+  onSwitchLanguage(){
+ const langStore=useLanguageStore();
+  langStore.switchLanguage();
+
+  const lang= window.localStorage.getItem("lang")==null?"en":window.localStorage.getItem("lang");
+      if(lang=="ar"){
+        document.getElementById("f-section").style.direction="rtl";
+        document.getElementById("s-section").style.direction="rtl";
+        document.getElementById("t-section").style.direction="rtl";
+        document.getElementById("note-id").style.direction="rtl";
+       
+      }else{
+      
+        document.getElementById("f-section").style.direction="ltr";
+        document.getElementById("s-section").style.direction="ltr";
+        document.getElementById("t-section").style.direction="ltr";
+        document.getElementById("note-id").style.direction="ltr";
+      }
+ },
 
 },
  async   mounted(){

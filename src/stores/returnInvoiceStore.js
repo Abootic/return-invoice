@@ -31,6 +31,21 @@ getters:{
 
 },
 actions:{
+    removeFromInvoiceList(index) {
+
+       
+  
+  
+  
+        this.returnDataList = this.returnDataList.filter(function (item) {
+  
+  
+          return item !== index
+        });
+        
+  
+  
+      },
 
 addToreturnDataList(item){
 

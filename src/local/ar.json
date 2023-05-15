@@ -39,7 +39,11 @@
     "invoicemerit":"استحقاق الفاتورة",
     "paid":"مدفوعة",
     "pend":" اجلة -تعليق السعر",
-    "selectinvoicemerit":"اختار استحقاق الفاتورة "
+    "selectinvoicemerit":"اختار استحقاق الفاتورة ",
+    "search":"بحث",
+    "change":"تغير",
+    "returninvoice":"مرتجع",
+    "changeQty":"تعديل الكمية"
 
     
 }

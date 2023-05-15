@@ -3,16 +3,17 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">edit</h1>
+    
           <button type="button" class="btn-close" data-bs-dismiss="modal"  @click="close" aria-label="Close"></button>
         </div>
-        {{ rrStore.changeQtyObj.counter }}
+     
         <div class="modal-body">
             <div class="mb-1">
               
-              <label for="recipient-name" class="col-form-label">{{ languageStore.TRANSLATE("Quantity") }}</label>
+              <h1 class="modal-title fs-5 text-center" >{{ languageStore.TRANSLATE("changeQty") }}</h1>
               <div class="qty-Container" >
-               <input type='button' value='+' @click="Increase()" class='qtyplus plus' field='quantity' />
+                <!-- @click="Increase()"  -->
+               <input type='button' value='+' class='qtyplus plus' field='quantity' />
                
               
                    

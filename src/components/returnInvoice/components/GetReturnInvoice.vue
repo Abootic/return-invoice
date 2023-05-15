@@ -3,11 +3,11 @@
     <div class="row">
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mt-3">
         <div class="row">
-          <label class="col-form-label text-start">search</label>
+          <label class="col-form-label text-center fs-5"> {{ langStore.TRANSLATE("search") }}</label>
           <input type="text" class="form-control mb-2 m-1" v-model="searchId"  v-on:input="typeSerch()"/>
           <span class="text-danger">{{ searchErr }}</span>
           <button class="btn btn-info mb-2 m-1" @click="onSubmitSearch($event)">
-            search
+            {{ langStore.TRANSLATE("search") }}
           </button>
         </div>
       </div>
@@ -16,10 +16,14 @@
 </template>
 <script>
 import { useReturnInvoiceStore } from "@/stores/returnInvoiceStore";
+import { useLanguageStore } from "@/stores/languageStore";
 
 export default {
   name: "ReturnInvoiceSearch",
-
+setup(){
+const langStore=useLanguageStore();
+return {langStore}
+},
   data() {
     return {
       searchId: "",
@@ -47,7 +51,6 @@ this.searchErr="";
             if (
               this.searchId == rStore.returnDataListCaches[i].invoice_number
             ) {
-console.log("tttttttttttttt "+JSON.stringify(rStore.returnDataListCaches[i]));
               rStore.$state.counter++;
               j = rStore.$state.counter;
               data = {
